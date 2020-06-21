@@ -1,4 +1,5 @@
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const {
     NODE_ENV = 'development',
@@ -14,6 +15,9 @@ module.exports = session({
     resave: false,
     saveUninitialized: false,
     secret: SESS_SECRET,
+    store: new MongoStore({
+        url: 'mongodb://localhost:27017/session-manager'
+    }),
     cookie: {
         maxAge: SESS_LIFETIME,
         sameSite: true,
