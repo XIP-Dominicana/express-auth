@@ -1,10 +1,4 @@
-const express = require('express');
-const router = express.Router();
-
-router.use(
-    '/home',
-    require('./home.route')
-)
+const router = require('express').Router();
 
 router.use(
     '/login',

@@ -4,7 +4,13 @@ const objectId = Schema.ObjectId;
 
 const UserSchema = new Schema({
     author: objectId,
-    userName: {
+    name: String,
+    lastName: String,
+    email: {
+        type: String,
+        require: true
+    },
+    user: {
         type: String,
         required: true
     },
